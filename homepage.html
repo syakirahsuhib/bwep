@@ -1,0 +1,233 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset = "utf-8">
+  <title>Homepage</title>
+
+  <style type="text/css">
+    
+    * {
+      margin:0px;
+      padding: 0px;
+      box-sizing: border-box;
+    }
+
+    header {
+      display: flex;
+      margin: none;
+      align-items: center;
+    }
+
+    .logo-container, .nav-links, .cart {
+      display: flex;
+    }
+
+/*    .logo-container{
+      flex: 1;
+    }
+
+    .logo {
+      font-weight: 400;
+      margin: 5px;
+    }*/
+
+    nav {
+      flex: 2;
+      justify-content: flex-end;
+      background-color: grey;
+      margin:1vh;
+      height: 5vh;
+
+    }
+
+    .nav-links, .dropbtn{
+      color: white;
+      font-size: 18px;
+      text-decoration: none;
+      justify-content: space-around;
+      list-style: none;
+    }
+
+/*    main{
+
+      justify-content: center;
+      margin-top: 5vh;
+
+      display: grid;
+      grid-template-columns: 30vh 30vh 30vh;
+      grid-column-gap: 10px;
+      grid-template-areas: 
+      "one two three" 
+
+       }*/
+       .grid{
+       	margin:80px;
+       	display: grid;
+       	grid-template-columns: repeat(3,1fr);
+       	grid-gap: 30px;
+       	align-items: center;
+
+       }
+       .grid > div{
+       	background: #eee5e9;
+       	border:none;
+       	box-shadow: 2px 2px 6px 0px rgba(0,0,0,0.3);
+       	border-radius: 20px;
+       	text-align: center;
+       	width: 250px;
+       	transition: transform;
+       }
+       .grid > div:hover{
+       	transform: translateY(5px);
+       	box-shadow: 2px 2px 26px 0px rgba(0,0,0,0.3);
+       }
+       .grid > div img{
+       	width:100%;
+       	border-top-left-radius: 20px;
+       	border-top-right-radius: 20px;
+       }
+
+		.grid > div button{
+			background: grey;
+			border-radius: 20px;
+			border:none;
+			color:#fff;
+			padding: 10px;
+			width: 100%;
+			font-weight:600;
+			text-transform: uppercase;
+			cursor: pointer;
+		}
+
+		@media (max-width: 768px){
+			.grid{
+				grid-template-columns: repeat(2, 1fr);
+
+			}
+		}
+
+		@media (max-width: 500px){
+			.grid{
+				grid-template-columns: repeat(1, 1fr);
+			}
+			.grid > div{
+				text-align: center;
+			}
+		}
+
+/*
+    #card1 {
+      background-color: grey;
+      height: 50vh;
+      grid-area: one;
+      }
+
+    #card2 {
+      background-color: grey;
+      height: 50vh;
+      grid-area: two;
+      }
+
+    #card3 {
+      background-color: grey;
+      height: 50vh;
+      grid-area: three;
+
+      } */
+/*
+    div {
+      text-align: center;
+    }*/
+
+/*    img{
+      width: 20vh;
+      height: 20vh;
+    }
+*/
+    .dropbtn {
+      background-color: grey;
+      border: none;
+    }
+
+    .dropdown-content a{
+      display: block;
+      margin-top: 10px;
+      color: white;
+      font-size: 18px;
+      text-decoration: none;
+
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      border: 1px solid white;
+      background-color: grey;
+      width: 16vh;
+
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    }
+
+    .dropdown:hover .dropdown-content {display: block;}
+
+</style>
+</head>
+<body>
+
+<header>
+
+<!--   <div class="logo-container">
+    <img src="logo.png" alt="logo" width="20%" height="20%">
+    <h4 class="logo">Website</h4>
+  </div> -->
+
+  <nav>
+    <ul class="nav-links">
+      <li><a class="nav-links" href="homepage.html">Home</a></li>
+      <li><div class="dropdown">
+        <button class="dropbtn">Card Templates</button>
+        <div class="dropdown-content">
+          <a href="corporate.html">Corporate</a>
+          <a href="formal.html">Formal</a>
+          <a href="informal">Informal</a>
+        </div>
+      </div></li>
+      <li><a class="nav-links" href="">Custom Cards</a></li>
+    </ul>
+  </nav>
+
+</header>
+
+<main class="grid">
+  <div id="card1">
+    <img src="corporate.jpg">
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+    consequat.</p>
+  <button onclick="location.href='corporate.html'">Corporate Cards</button>  
+  </div>
+
+  <div id="card2">
+    <img src="corporate.jpg">
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+    consequat.</p>
+  <button onclick="location.href='formal.html'">Formal Cards</button>     
+  </div>
+
+  <div id="card3">
+    <img src="corporate.jpg">
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+    consequat.</p>   
+    <button onclick="location.href='informal.html'">Informal Cards</button>
+  </div>
+
+</main>
+
+</body>
+</html>

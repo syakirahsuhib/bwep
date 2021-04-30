@@ -1,0 +1,209 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Informal</title>
+	<style type="text/css">
+
+    * {
+      margin:0px;
+      padding: 0px;
+      box-sizing: border-box;
+    }
+    img{
+			width: 120px;
+			height: 120px; display: inline-block;
+		}
+
+		table {
+			position: absolute;
+			width: 50vh;
+			height: 50vh;
+			border-collapse: collapse;
+			top: 5%; 
+		}
+
+
+		#preview-container {
+			width: 50vh;
+			height: 70vh;
+            position: absolute;
+			left: 50%;
+			top: 5%;
+			border:1px solid black; 
+		}
+
+		#pv-familyname,#pv-event,#pv-date, #pv-time, #pv-address, #pv-rsvp {
+		    border:1px solid #ffffff;
+			position: relative;
+			margin: auto;
+			height: 16.6%; 
+			width: 50%; 
+			overflow: auto; 
+
+		}
+	</style>
+</head>
+<body>
+<main>
+	<div>
+		<table>
+			<tr>
+				<td>
+					<label for="familyname">Family Name</label>
+				</td>
+				<td>
+					<textarea name="familyname" id="familyname" onkeyup="showHTML()"></textarea>
+					<!-- <input type="text" name="title" id="title" onkeyup="showHTML()"> -->
+				</td>
+			</tr>
+
+			<tr>
+				<td>
+					<label for="event">Event</label>
+				</td>
+				<td>
+					<input type="event" name="event" id="event" onkeyup="show()">
+				</td>
+			</tr>
+
+			<tr>
+				<td>
+					<label for="date">Date</label>
+				</td>
+				<td>
+					<input type="date" name="date" id="date" onchange ="date()">
+				</td>
+			</tr>
+
+			<tr>
+				<td>
+					<label for="time">Time</label>
+				</td>
+				<td>
+					<input type="time" name="time" id="time" onchange="time ()">
+				</td>
+			</tr>	
+
+			<tr>
+				<td>
+					<label for="address">Address</label>
+				</td>
+				<td>
+					<textarea name="address" id="address" onkeyup="testing()"></textarea>
+				</td>
+			</tr>	
+
+			<tr>
+				<td>
+					<label for="rsvp">RSVP</label>
+				</td>
+				<td>
+					<textarea name="rsvp" id="rsvp" onkeyup="rsvp()"></textarea>
+				</td>
+
+			</tr>	
+
+			<tr>
+				<td>Choose your Sticker <br> (Drag & Drop)</td>
+				<td>
+<img id="drag1" src="./masjid3.png" draggable="true" ondragstart="drag(event)">
+<img id="drag2" src="./masjid4.png" draggable="true" ondragstart="drag(event)">
+<img id="drag3" src="./masjid5.png" draggable="true" ondragstart="drag(event)">
+				</td>
+			</tr>
+
+			<tr>
+				<td>
+					<label for="colorPicker">Background color:</label>
+				</td>
+				<td>
+					<input type="color" value="#8888ff" id="colorPicker">
+				</td>
+				<p id="output"></p>
+			</tr>		
+
+
+			<h2>Customise your card</h2>	
+
+	</div>
+
+	<div id="preview-container"  ondrop="drop(event)" ondragover="allowDrop(event)">
+		<!-- <textarea></textarea> -->
+		<div id="pv-familyname"></div>
+		<div id="pv-event"></div>
+		<div id="pv-date"></div>
+		<div id="pv-time"></div>
+		<div id="pv-address"></div>
+		<div id="pv-rsvp"></div>
+	</div>
+
+
+	<script type="text/javascript">
+		function showHTML (){
+			txtarea1 = document.getElementById('familyname');
+			viewHtml = document.getElementById('pv-familyname');
+			viewHtml.innerHTML = txtarea1.value
+		}
+
+		function show (){
+			txtarea2 = document.getElementById('event');
+			viewHtml2 = document.getElementById('pv-event');
+			viewHtml2.innerHTML = txtarea2.value
+		}
+
+
+		function date (){
+			date = document.getElementById('date');
+			pvdate = document.getElementById('pv-date');
+			pvdate.innerHTML = date.value
+		}
+
+		function time (){ //cannot preview
+			time = document.getElementById('time');
+			pvtime= document.getElementById('pv-time');
+			pvtime.innerHTML = time.value
+		}
+
+
+		function testing(){
+			txtarea3 = document.getElementById('address');
+			viewHtml3 = document.getElementById('pv-address');
+			viewHtml3.innerHTML = txtarea3.value
+		}
+
+		function rsvp (){
+			txtarea4 = document.getElementById('rsvp');
+			viewHtml4 = document.getElementById('pv-rsvp');
+			viewHtml4.innerHTML = txtarea4.value
+		}
+
+function allowDrop(ev) {
+ev.preventDefault();
+}
+
+function drag(ev) {
+ev.dataTransfer.setData("text", ev.target.id);
+}
+
+function drop(ev) {
+ev.preventDefault();
+var data = ev.dataTransfer.getData("text");
+ev.target.appendChild(document.getElementById(data));
+}
+
+let colorPicker = document.getElementById("colorPicker");
+let box = document.getElementById("preview-container");
+let output = document.getElementById("output");
+
+box.style.backgroundColor = colorPicker.value;
+
+colorPicker.addEventListener("input", function(event) {
+  box.style.backgroundColor = event.target.value;
+}, false);
+	</script>
+
+
+</main>
+</body>
+</html>
